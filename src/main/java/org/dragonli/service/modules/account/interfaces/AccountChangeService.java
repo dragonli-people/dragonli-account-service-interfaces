@@ -8,5 +8,5 @@ import java.util.Map;
  */
 public interface AccountChangeService {
 
-	Map<String,Object> addChangeRecord(Map<String,Object> record);
+	Boolean addChangeRecord(Long evidenceId) throws Exception;
 }
