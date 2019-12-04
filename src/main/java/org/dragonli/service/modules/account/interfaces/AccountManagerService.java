@@ -1,31 +1,34 @@
 package org.dragonli.service.modules.account.interfaces;
 
-
+import java.math.BigDecimal;
 import java.util.Map;
 
-
 public interface AccountManagerService {
-	
-	String withdrawal(Map<String, Object> jsonParams) throws Exception; //提现业务处理
-	String payment(Map<String, Object> jsonParams) throws Exception;
-	Map<String,Object> adjustment(Map<String, Object> jsonParams) throws Exception;
 
-	Map<String,Object> getUserAccount(Map<String, Object> jsonParams) throws Exception;
+	Map<String, Object> withdrawal(Long userId, String reflexId, BigDecimal amount) throws Exception ;
 
+	Map<String, Object> paymentStatus(String orderId) throws Exception;
 
-	Map<String, Object> userAccountList(Map<String, Object> jsonParams) throws Exception;
+	Map<String, Object> adjustmentStatus(String orderId) throws Exception ;
 
+	String payment(Long userId, String reflexId, String target, BigDecimal amount, String currency,
+			String orderId, String remark, Boolean readOnly) throws Exception;
 
-	Map<String, Object> userAccountWithdrawal() throws Exception;
+	Map<String, Object> accountWithdrawal(Long applicationId, String userId, String amountStr, String currency,
+			String orderId, String address, String addressExtend) throws Exception;
 
-//	Map<String, Object> topChildAccountWithdrawalAndDepositList(Long enterpriseId, String userId, String currency,
-//            Integer top) throws Exception;
+	Map<String, Object> userAccountWithdrawal() throws Exception ;
 
-//	Map<String, Object> childAccountWithdrawal(Long enterpriseId, String userId, String amountStr, String currency,
-//            String orderId, String address, String addressExtend) throws Exception;
+	Map<String, Object> getUserAccount(Long userId,String reflexId,String currency) throws Exception ;
 
+	Map<String, Object> userAccountList(Long userId) throws Exception;
 
-//	Map<String,Object> getUserAccountMemo(Long enterpriseId, String userId, String currency);
+	Map<String, Object> executeWithdrawal(Long id, Boolean ok) throws Exception ;
 
+	String accountAdjustment(String orderId,Long userId,String reflexId,String currency,BigDecimal amount,String remark) throws Exception;
+
+	Boolean fixBusiness(Long id) throws Exception;
+
+	Boolean closeBusiness(Long id) throws Exception;
 
 }
