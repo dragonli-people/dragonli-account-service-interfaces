@@ -12,7 +12,7 @@
 	<artifactId>dragonli-account-service-interfaces</artifactId>
 	<packaging>jar</packaging>
 	<name>dragonli-account-service-interfaces</name>
-	<version>0.9.1</version>
+	<version>0.9.2</version>
 
 	<description>interface of account-change and account-manager services</description>
 	<url>https://github.com/dragonli-people/dragonli-account-service-interfaces.git</url>

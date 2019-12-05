@@ -5,19 +5,17 @@ import java.util.Map;
 
 public interface AccountManagerService {
 
-	Map<String, Object> withdrawal(Long userId, String reflexId, BigDecimal amount) throws Exception ;
+	Map<String, Object> withdrawal(Long userId, String reflexId,String currency, String amountStr) throws Exception ;
 
 	Map<String, Object> paymentStatus(String orderId) throws Exception;
 
 	Map<String, Object> adjustmentStatus(String orderId) throws Exception ;
 
-	String payment(Long userId, String reflexId, String target, BigDecimal amount, String currency,
+	String payment(Long userId, String reflexId, String target, String amountStr, String currency,
 			String orderId, String remark, Boolean readOnly) throws Exception;
 
 	Map<String, Object> accountWithdrawal(Long applicationId, String userId, String amountStr, String currency,
 			String orderId, String address, String addressExtend) throws Exception;
-
-	Map<String, Object> userAccountWithdrawal() throws Exception ;
 
 	Map<String, Object> getUserAccount(Long userId,String reflexId,String currency) throws Exception ;
 
@@ -25,7 +23,7 @@ public interface AccountManagerService {
 
 	Map<String, Object> executeWithdrawal(Long id, Boolean ok) throws Exception ;
 
-	String accountAdjustment(String orderId,Long userId,String reflexId,String currency,BigDecimal amount,String remark) throws Exception;
+	String accountAdjustment(String orderId,Long userId,String reflexId,String currency,String amountStr,String remark) throws Exception;
 
 	Boolean fixBusiness(Long id) throws Exception;
 
