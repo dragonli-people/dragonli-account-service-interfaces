@@ -14,7 +14,7 @@ public interface AccountManagerService {
 	String payment(Long userId, String reflexId, String target, String amountStr, String currency,
 			String orderId, String remark, Boolean readOnly) throws Exception;
 
-	Map<String, Object> accountWithdrawal(Long applicationId, String userId, String amountStr, String currency,
+	Map<String, Object> accountWithdrawal(String userId, String amountStr, String currency,
 			String orderId, String address, String addressExtend) throws Exception;
 
 	Map<String, Object> getUserAccount(Long userId,String reflexId,String currency) throws Exception ;
